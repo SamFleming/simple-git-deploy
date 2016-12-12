@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#CONFIG
+WORK_TREE="/var/www/example.com/htdocs"
+GIT_DIR=`pwd`
+
+read oldrev newrev refname
+
+echo "===== DEPLOYING ($newrev) ====="
+git --work-tree=$WORK_TREE checkout $newrev -q -f
+
+cd $WORK_TREE
+export GIT_DIR=$GIT_DIR
+export GIT_WORK_TREE=$WORK_TREE
+
+# Any post-deploy tasks you want. E.g. clear any caches
+echo "===== CLEAR CACHES ====="
+rm -Rf app/cache/*
+
+echo "===== DONE ====="
