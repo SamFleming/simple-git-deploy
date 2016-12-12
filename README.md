@@ -11,7 +11,9 @@ Create a bare git repo somewhere private
 
 ## 2
 
-Copy `post-receive` into the `hooks` folder. Make any changes as needed
+Copy `post-receive` into the `hooks` folder. Make any changes as needed.
+
+> Don't forget to make it executable (`chmod a+x post-receive`)
  
 ## 3
 
